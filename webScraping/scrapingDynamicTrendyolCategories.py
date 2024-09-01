@@ -77,20 +77,15 @@ try:
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div.enhanced-navigation li.tab-link'))
     )
 
-
-#Alt Basliklar
     for tab_link in tab_links:
         category_boxes = tab_link.find_elements(By.CSS_SELECTOR, 'div.category-box')
 
-        # Ana categoryleri buradan bulabiliriz
         category_headers = tab_link.find_elements(By.CSS_SELECTOR, 'a.category-header')
 
         for category_header in category_headers:
-            # Get the text and href attribute of each category header
             categoryName = category_header.get_attribute('innerText')
             categoryLink = category_header.get_attribute('href')
 
-        # Ana categoryleri buradan bulabiliriz
 
             sub_categories = []
             if len(category_boxes) >= 1:
